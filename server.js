@@ -5,12 +5,13 @@ const path = require('path');
 const schedule = require('node-schedule');
 const app = express();
 const server = http.createServer(app);
-const io = require('socket.io')(http, {
+const io = require('socket.io')(server, {
     cors: {
-      origin: "https://sarlextracoiffure.onrender.com",
-      methods: ["GET", "POST"]
+        origin: "https://sarlextracoiffure.onrender.com",
+        methods: ["GET", "POST"]
     }
 });
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
